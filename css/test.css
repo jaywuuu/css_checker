@@ -1,0 +1,12 @@
+.class1 .class2, .class3 .class4 {
+    border: 4px; /* comments */
+}
+
+       .class1    .class2,
+       .class3    .class4 {
+    border: 4px;
+}
+
+.class3 .class4, .class1 .class2 {
+    border: 4px;
+}
