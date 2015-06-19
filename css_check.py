@@ -71,7 +71,7 @@ def css_dup_check(filepath):
     dups = []
     i = 1
     for b in blocks:
-        j = i+1
+        j = i
         dup_set = []
         for c in blocks[i:]:
             print("==================================================")
@@ -90,5 +90,4 @@ def css_dup_check(filepath):
             dups.append(dup_set)
 
     return dups
-
 
