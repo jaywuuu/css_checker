@@ -66,6 +66,7 @@ def process_css_file(file_path):
     return css_blocks
 
 
+# TODO: re-write this so comparison of large data sets doesn't take forever
 def css_dup_check(filepath):
     blocks = process_css_file(filepath)
     dups = []
