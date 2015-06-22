@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import css_check
 import sys
 

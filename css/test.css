@@ -10,3 +10,10 @@
 .class3 .class4, .class1 .class2 {
     border: 4px;
 }
+
+.class1 .class3, .class2 .class4 {
+
+}
+
+.class1 .class2 .class3 .class4 {}
+
