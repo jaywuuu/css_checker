@@ -66,29 +66,18 @@ def process_css_file(file_path):
     return css_blocks
 
 
-# TODO: re-write this so comparison of large data sets doesn't take forever
+# Returns a dictionary of sets of the same css blocks and their line numbers.
 def css_dup_check(filepath):
     blocks = process_css_file(filepath)
-    dups = []
-    i = 1
+    dups = {}
     for b in blocks:
-        j = i
-        dup_set = []
-        for c in blocks[i:]:
-            print("==================================================")
-            print("Comparing", i-1, "to", j, ":")
-            print(b.selector_str, "to", c.selector_str)
-            if b.compare_to(c):
-                print ("Duplicate found: line", b.selectors.line, "and line", c.selectors.line)
-                if b not in dup_set:
-                    dup_set.append(b)
-                dup_set.append(c)
-
-            j = j+1
-
-        i = i+1
-        if len(dup_set) > 0:
-            dups.append(dup_set)
+        print("==================================================")
+        print('Checking:', b.selector_str)
+        if b.selector_str in dups.keys():
+            print('Duplicate found on line:', b.selectors.line, 'with line:', dups[b.selector_str][0].selectors.line)
+            dups[b.selector_str].append(b)
+        else:
+            dups[b.selector_str] = [b]
 
     return dups
 
